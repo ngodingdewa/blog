@@ -4,13 +4,29 @@
   <div class="ui equal width stackable internally celled grid">
     <div class="center aligned row">
       <div class="column">
-        <h3>"What a Company"</h3>
-        <p>That is what they all say about us</p>
+        <h3>Keep in touch</h3>
+        <p>Ikuti kami untuk mendapatkan update terbaru</p>
+        <div class="social">
+          <a class="ui circular facebook icon button"  href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <i class="facebook f icon"></i>
+          </a>
+          <a class="ui circular twitter icon button" href="https://twitter.com/share?text={{.Title | safeHTML}}&amp;url={{.Permalink}}"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <i class="twitter icon"></i>
+          </a>
+          <a class="ui circular telegram plane icon button">
+            <i class="telegram plane icon"></i>
+          </a>
+          <a class="ui circular google plus icon button">
+            <i class="google google plus g icon"></i>
+          </a>
+        </div>
       </div>
       <div class="column">
-        <h3>"I shouldn't have gone with their competitor."</h3>
+        <h3>"We all need people who will give us feedback. That’s how we improve."</h3>
         <p>
-          <img src="//semantic-ui.com/examples/assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+          <img src="//pbs.twimg.com/profile_images/988775660163252226/XpgonN0X_reasonably_small.jpg" class="ui avatar image"> <b>Bill Gates</b>
         </p>
       </div>
     </div>
