@@ -1,0 +1,47 @@
+{{ partial "category" . }}
+
+<div class="ui vertical stripe quote segment">
+  <div class="ui equal width stackable internally celled grid">
+    <div class="center aligned row">
+      <div class="column">
+        <h3>"What a Company"</h3>
+        <p>That is what they all say about us</p>
+      </div>
+      <div class="column">
+        <h3>"I shouldn't have gone with their competitor."</h3>
+        <p>
+          <img src="//semantic-ui.com/examples/assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui vertical stripe segment">
+  <div class="ui container">
+    <div class="ui stackable three cards" style="margin-bottom: 10px">
+      {{ partial "post-list" . }}
+    </div>
+    <div class="ui center aligned container grid">
+        <div class="row">
+            <div class="four wide column">
+      {{if .Paginator.HasPrev }}
+        <a class="ui mini left floated button" href="{{ .Paginator.Prev.URL }}">&larr; <span class="hide">Previous Posts</span></a>
+      {{end}}
+      </div>
+      <div class="eight wide column">
+      <div class="ui mini buttons">
+        <button class="ui button">{{ .Paginator.PageNumber }}</button>
+        <div class="or" data-text="of"></div>
+        <button class="ui button">{{.Paginator.TotalPages}}</button>
+      </div>
+      </div>
+      <div class="four wide column">
+      {{if .Paginator.HasNext}}
+        <a class="ui mini right floated button" href="{{ .Paginator.Next.URL }}"><span class="hide">Next Posts</span> &rarr;</a>
+      {{end}}
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
