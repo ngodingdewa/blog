@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="shortcut icon" href="/avatar.png" />
+  <link rel="icon" href="/avatar.png" />
+  <link rel="canonical" href="/post/migrate-from-jekyll/" />
+  
+  <title>Migrate from jekyll</title>
+  <meta itemprop="name" content="Ngoding Dewa - Free development tutorial - Laravel, git, javascript">
+  <meta itemprop="description" content="Free front-end and back-end tutorial, web development tutorials on JavaScript, git and more.">
+  <meta property="og:title" content="Migrate from jekyll}" />
+  <meta property="og:description" content="Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &lt;root&gt;/ ▾ images/ logo.png  should become
+▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static. ... " />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/post/migrate-from-jekyll/" />
+  <meta content='summary_large_image' name='twitter:card' />
+  <meta content='@ngodingdewa' name='twitter:site' />
+  <meta content='@robialisandi' name='twitter:creator' />
+  <meta property='og:image' content='https://d33wubrfki0l68.cloudfront.net/7e6ec3b647e1735c94a1ed519d824a6b5ea618f2/cd1df/img/nodejs/npm/npm.png' />
+  <meta property='og:image:alt' content='Ngoding Dewa - Free development tutorial - Laravel, git, javascript' />
+  <meta content='id_ID' property='og:locale' />
+  <meta content='ms_MY' property='og:locale:alternate' />
+  <meta content='en_US' property='og:locale:alternate' />
+  <meta content='' property='fb:app_id' />
+  <meta content='ngodingdewa' property='fb:pages' />
+  <meta content='' property='fb:pages' />
+  <meta content='' property='fb:profile_id' />
+  <meta property="og:site_name" content="Ngoding Dewa">
+  <meta property="article:publisher" content="https://www.facebook.com/ngodingdewa" />
+  <meta property="article:author" content="https://www.facebook.com/ngodingdewa" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/mystyle.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+
+</head>
+<body>
+  
+  <div class="ui large top fixed hidden menu secondary">
+    <div class="ui container">
+      <a href="/" class="header item">
+        <img class="logo" src="/avatar.png">
+      </a>
+      <div class="right menu">
+        <div class="ui search" style="padding-top: 10px;padding-right: 10px;">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ui vertical inverted sidebar menu">
+      
+      
+      
+        <a class="item " href="/">Home</a>
+      
+        <a class="item " href="/categories/laravel/">Laravel</a>
+      
+        <a class="item " href="/categories/react/">React.js</a>
+      
+        <a class="item " href="/categories/react/">Vue.js</a>
+      
+        <a class="item " href="/categories/angular/">Angular</a>
+      
+        <a class="item " href="/categories/git/">Git</a>
+      
+        <a class="item " href="/categories/codeigniter/">Codeigniter</a>
+      
+  </div>
+    
+  <div class="pusher">
+
+    <div class="ui inverted vertical masthead center aligned segment" style="min-height: 0px">
+        <div class="ui container">
+          <div class="ui large secondary inverted pointing menu">
+            <a class="toc item">
+              <i class="sidebar icon"></i>
+            </a>
+            <a href="/" class="header item">
+              <img class="logo" src="/ngodingdewa-logo.png" style="width: 192px">
+            </a>
+            <div class="right item">
+                <div class="ui item search">
+                    <div class="ui icon input">
+                      <input class="prompt" type="text" placeholder="Search...">
+                      <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="ui main text container content">
+      <div class="ui grid">
+        <div class="row">
+          <div class="nine wide column">
+            <div class="ui horizontal list">
+              <div class="item">
+                <img class="ui mini circular image" src="https://semantic-ui.com/images/avatar2/small/elyse.png">
+                <div class="content">
+                  <div class="ui sub header">ngodingdewa</div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <time class="post-full-meta-date" datetime="2018-06-17" style="float: right;margin-top: 8px;"><div class="ui teal label"><i class="calendar alternate icon"></i> 17 June 2018</div></time>
+          </div>
+        </div>
+      </div>
+      
+      <h1 class="ui header">Migrate from jekyll</h1>
+      <div class="ui tag">
+        
+          
+          <a class="ui tiny label">#go</a> 
+          
+          <a class="ui tiny label">#golang</a> 
+          
+          <a class="ui tiny label">#hugo</a> 
+          
+          <a class="ui tiny label">#development</a> 
+          
+        
+      </div>
+      <img src="https://d33wubrfki0l68.cloudfront.net/7e6ec3b647e1735c94a1ed519d824a6b5ea618f2/cd1df/img/nodejs/npm/npm.png" alt="Migrate from jekyll" style="width: 100%">
+      
+
+<h2 id="move-static-content-to-static">Move static content to <code>static</code></h2>
+
+<p>Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.
+With Jekyll, something that looked like</p>
+
+<pre><code>▾ &lt;root&gt;/
+    ▾ images/
+        logo.png
+</code></pre>
+
+<p>should become</p>
+
+<pre><code>▾ &lt;root&gt;/
+    ▾ static/
+        ▾ images/
+            logo.png
+</code></pre>
+
+<p>Additionally, you&rsquo;ll want any files that should reside at the root (such as <code>CNAME</code>) to be moved to <code>static</code>.</p>
+
+<h2 id="create-your-hugo-configuration-file">Create your Hugo configuration file</h2>
+
+<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="/overview/configuration/">Hugo configuration documentation</a> for details.</p>
+
+<h2 id="set-your-configuration-publish-folder-to-site">Set your configuration publish folder to <code>_site</code></h2>
+
+<p>The default is for Jekyll to publish to <code>_site</code> and for Hugo to publish to <code>public</code>. If, like me, you have <a href="http://blog.blindgaenger.net/generate_github_pages_in_a_submodule.html"><code>_site</code> mapped to a git submodule on the <code>gh-pages</code> branch</a>, you&rsquo;ll want to do one of two alternatives:</p>
+
+<ol>
+<li><p>Change your submodule to point to map <code>gh-pages</code> to public instead of <code>_site</code> (recommended).</p>
+
+<pre><code>git submodule deinit _site
+git rm _site
+git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
+</code></pre></li>
+
+<li><p>Or, change the Hugo configuration to use <code>_site</code> instead of <code>public</code>.</p>
+
+<pre><code>{
+    ..
+    &quot;publishdir&quot;: &quot;_site&quot;,
+    ..
+}
+</code></pre></li>
+</ol>
+
+<h2 id="convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</h2>
+
+<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
+
+<p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
+
+<h2 id="convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</h2>
+
+<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>As an example, I was using a custom <a href="https://github.com/alexandre-normand/alexandre-normand/blob/74bb12036a71334fdb7dba84e073382fc06908ec/_plugins/image_tag.rb"><code>image_tag</code></a> plugin to generate figures with caption when running Jekyll. As I read about shortcodes, I found Hugo had a nice built-in shortcode that does exactly the same thing.</p>
+
+<p>Jekyll&rsquo;s plugin:</p>
+
+<pre><code>module Jekyll
+  class ImageTag &lt; Liquid::Tag
+    @url = nil
+    @caption = nil
+    @class = nil
+    @link = nil
+    // Patterns
+    IMAGE_URL_WITH_CLASS_AND_CAPTION =
+    IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK = /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;(\s+)-&gt;((https?:\/\/|\/)(\S+))(\s*)/i
+    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;/i
+    IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
+    IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
+    def initialize(tag_name, markup, tokens)
+      super
+      if markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK
+        @class   = $1
+        @url     = $3
+        @caption = $7
+        @link = $9
+      elsif markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION
+        @class   = $1
+        @url     = $3
+        @caption = $7
+      elsif markup =~ IMAGE_URL_WITH_CAPTION
+        @url     = $1
+        @caption = $5
+      elsif markup =~ IMAGE_URL_WITH_CLASS
+        @class = $1
+        @url   = $3
+      elsif markup =~ IMAGE_URL
+        @url = $1
+      end
+    end
+    def render(context)
+      if @class
+        source = &quot;&lt;figure class='#{@class}'&gt;&quot;
+      else
+        source = &quot;&lt;figure&gt;&quot;
+      end
+      if @link
+        source += &quot;&lt;a href=\&quot;#{@link}\&quot;&gt;&quot;
+      end
+      source += &quot;&lt;img src=\&quot;#{@url}\&quot;&gt;&quot;
+      if @link
+        source += &quot;&lt;/a&gt;&quot;
+      end
+      source += &quot;&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;&quot; if @caption
+      source += &quot;&lt;/figure&gt;&quot;
+      source
+    end
+  end
+end
+Liquid::Template.register_tag('image', Jekyll::ImageTag)
+</code></pre>
+
+<p>is written as this Hugo shortcode:</p>
+
+<pre><code>&lt;!-- image --&gt;
+&lt;figure {{ with .Get &quot;class&quot; }}class=&quot;{{.}}&quot;{{ end }}&gt;
+    {{ with .Get &quot;link&quot;}}&lt;a href=&quot;{{.}}&quot;&gt;{{ end }}
+        &lt;img src=&quot;{{ .Get &quot;src&quot; }}&quot; {{ if or (.Get &quot;alt&quot;) (.Get &quot;caption&quot;) }}alt=&quot;{{ with .Get &quot;alt&quot;}}{{.}}{{else}}{{ .Get &quot;caption&quot; }}{{ end }}&quot;{{ end }} /&gt;
+    {{ if .Get &quot;link&quot;}}&lt;/a&gt;{{ end }}
+    {{ if or (or (.Get &quot;title&quot;) (.Get &quot;caption&quot;)) (.Get &quot;attr&quot;)}}
+    &lt;figcaption&gt;{{ if isset .Params &quot;title&quot; }}
+        {{ .Get &quot;title&quot; }}{{ end }}
+        {{ if or (.Get &quot;caption&quot;) (.Get &quot;attr&quot;)}}&lt;p&gt;
+        {{ .Get &quot;caption&quot; }}
+        {{ with .Get &quot;attrlink&quot;}}&lt;a href=&quot;{{.}}&quot;&gt; {{ end }}
+            {{ .Get &quot;attr&quot; }}
+        {{ if .Get &quot;attrlink&quot;}}&lt;/a&gt; {{ end }}
+        &lt;/p&gt; {{ end }}
+    &lt;/figcaption&gt;
+    {{ end }}
+&lt;/figure&gt;
+&lt;!-- image --&gt;
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+
+<p>I simply changed:</p>
+
+<pre><code>{% image full http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg &quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were &quot;having fun&quot; and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; -&gt;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/ %}
+</code></pre>
+
+<p>to this (this example uses a slightly extended version named <code>fig</code>, different than the built-in <code>figure</code>):</p>
+
+<pre><code>{{% fig class=&quot;full&quot; src=&quot;http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg&quot; title=&quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were having fun and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; link=&quot;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/&quot; %}}
+</code></pre>
+
+<p>As a bonus, the shortcode named parameters are, arguably, more readable.</p>
+
+<h2 id="finishing-touches">Finishing touches</h2>
+
+<h3 id="fix-content">Fix content</h3>
+
+<p>Depending on the amount of customization that was done with each post with Jekyll, this step will require more or less effort. There are no hard and fast rules here except that <code>hugo server --watch</code> is your friend. Test your changes and fix errors as needed.</p>
+
+<h3 id="clean-up">Clean up</h3>
+
+<p>You&rsquo;ll want to remove the Jekyll configuration at this point. If you have anything else that isn&rsquo;t used, delete it.</p>
+
+<h2 id="a-practical-example-in-a-diff">A practical example in a diff</h2>
+
+<p><a href="http://heyitsalex.net/">Hey, it&rsquo;s Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610">diff</a>.</p>
+
+
+      <div class="social" style="margin-top: 4em">
+        <a class="ui circular facebook icon button"  href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fmigrate-from-jekyll%2f"
+        onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <i class="facebook f icon"></i>
+        </a>
+        <a class="ui circular twitter icon button" href="https://twitter.com/share?text=Migrate%20from%20jekyll&amp;url=%2fpost%2fmigrate-from-jekyll%2f"
+        onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <i class="twitter icon"></i>
+        </a>
+        <a class="ui circular telegram plane icon button">
+          <i class="telegram plane icon"></i>
+        </a>
+        <a class="ui circular google plus icon button">
+          <i class="google google plus g icon"></i>
+        </a>
+      </div>
+      <div class="ui icon message" style="margin-top: 4em">
+        <i class="inbox icon"></i>
+        <div class="content">
+          <div class="header">
+            Ngoding Dewa
+          </div>
+          <p style="line-height: 1.3;font-size: 1em;">Sebuah situs web yang menyajikan tutorial <b>gratis</b> dengan dasar sebagai catatan progress pembelajaran yang sedang dilakukan, dan berharap bermanfaat bagi yang lain.</p>
+        </div>
+      </div>
+      
+
+<div id="disqus_thread" style="margin:40px 0 60px 0;"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ngodingdewa';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by
+    <span class="logo-disqus">Disqus</span>
+</a>
+
+
+    </div>
+
+    <div class="ui inverted vertical footer segment">
+      <div class="ui center aligned container">
+
+        <img src="/avatar.png" class="ui centered mini image">
+        <div class="ui horizontal inverted small divided link list">
+          <a class="item" href="#">Site Map</a>
+          <a class="item" href="#">Contact Us</a>
+          <a class="item" href="#">Terms and Conditions</a>
+          <a class="item" href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//semantic-ui.com/examples/assets/library/jquery.min.js"></script>
+  <script src="/js/visibility.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/transition.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+      $(document)
+        .ready(function() {
+    
+          
+          $('.masthead')
+            .visibility({
+              once: false,
+              onBottomPassed: function() {
+                $('.fixed.menu').transition('fade in');
+              },
+              onBottomPassedReverse: function() {
+                $('.fixed.menu').transition('fade out');
+              }
+            })
+          ;
+    
+          
+          $('.ui.sidebar')
+            .sidebar('attach events', '.toc.item')
+          ;
+    
+        })
+      ;
+    </script>
+</body>
+
+</html>
