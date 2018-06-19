@@ -7,19 +7,14 @@
         <h3>Keep in touch</h3>
         <p>Ikuti kami untuk mendapatkan update terbaru</p>
         <div class="social">
-          <a class="ui circular facebook icon button"  href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}"
-          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <a class="ui circular facebook icon button" target="_blank" href="https://facebook.com/{{ .Site.Params.fbName }}">
             <i class="facebook f icon"></i>
           </a>
-          <a class="ui circular twitter icon button" href="https://twitter.com/share?text={{.Title | safeHTML}}&amp;url={{.Permalink}}"
-          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <a class="ui circular twitter icon button" target="_blank"  href="https://twitter.com/{{ .Site.Params.twitterName }}">
             <i class="twitter icon"></i>
           </a>
-          <a class="ui circular telegram plane icon button">
-            <i class="telegram plane icon"></i>
-          </a>
-          <a class="ui circular google plus icon button">
-            <i class="google google plus g icon"></i>
+          <a class="ui circular instagram icon button" target="_blank"  href="https://instagram.com/{{ .Site.Params.igName }}">
+            <i class="instagram icon"></i>
           </a>
         </div>
       </div>

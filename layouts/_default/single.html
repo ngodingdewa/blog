@@ -13,7 +13,7 @@
   <title>{{.Title}}</title>
   <meta itemprop="name" content="{{ .Site.Params.title }}">
   <meta itemprop="description" content="{{ .Site.Params.metaDescription }}">
-  <meta property="og:title" content="{{.Title}}}" />
+  <meta property="og:title" content="{{.Title}}" />
   <meta property="og:description" content="{{ if .Description }} {{ .Description | markdownify }}{{else}}{{ .Summary | plainify | safeHTML }}{{ if .Truncated }} ... {{end}}{{end}}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{{ .Permalink }}" />
@@ -21,7 +21,7 @@
   <meta content='@ngodingdewa' name='twitter:site' />
   <meta content='@robialisandi' name='twitter:creator' />
   <meta property='og:image' content='{{.Params.image}}' />
-  <meta property='og:image:alt' content='{{ .Site.Params.title }}' />
+  <meta property='og:image:alt' content='{{.Title}}' />
   <meta content='id_ID' property='og:locale' />
   <meta content='ms_MY' property='og:locale:alternate' />
   <meta content='en_US' property='og:locale:alternate' />
@@ -46,7 +46,7 @@
       </a>
       <div class="right menu">
         <div class="ui search" style="padding-top: 10px;padding-right: 10px;">
-          <div class="ui icon input">
+          <div class="ui small icon input">
             <input class="prompt" type="text" placeholder="Search...">
             <i class="search icon"></i>
           </div>
@@ -66,19 +66,22 @@
     
   <div class="pusher">
 
-    <div class="ui inverted vertical masthead center aligned segment" style="min-height: 0px">
+    <div class="ui inverted vertical masthead center aligned segment" style="min-height: 0px; background:#24292e;padding: 0px">
         <div class="ui container">
-          <div class="ui large secondary inverted pointing menu">
+          <div class="ui large secondary inverted pointing menu" style="height: 72px">
             <a class="toc item">
               <i class="sidebar icon"></i>
             </a>
+            <a class="toc right item" style="padding-bottom:0px;padding-left:65%;">
+              <img src="{{ .Site.Params.logofixed  | absURL}}">
+            </a>
             <a href="/" class="header item">
-              <img class="logo" src="{{ .Site.Params.logo  | absURL}}" style="width: 192px">
+              <img class="logo" src="{{ .Site.Params.logofixed  | absURL}}" style="width: 40px">
             </a>
             <div class="right item">
                 <div class="ui item search">
-                    <div class="ui icon input">
-                      <input class="prompt" type="text" placeholder="Search...">
+                    <div class="ui small icon input">
+                      <input class="prompt" type="text" placeholder="Search..." style="background: #3f4347;color:whitesmoke">
                       <i class="search icon"></i>
                     </div>
                     <div class="results"></div>
@@ -103,7 +106,7 @@
             </div>
           </div>
           <div class="seven wide column">
-            <time class="post-full-meta-date" datetime="{{.Date.Format "2006-01-02"}}" style="float: right;margin-top: 8px;"><div class="ui teal label"><i class="calendar alternate icon"></i> {{ .Date.Format "2 January 2006" | safeHTML }}</div></time>
+            <time class="post-full-meta-date" datetime="{{.Date.Format "2006-01-02"}}" style="float: right;margin-top: 8px;"><div class="ui teal label datepublish"><i class="calendar alternate icon"></i> {{ .Date.Format "2 January 2006" | safeHTML }}</div></time>
           </div>
         </div>
       </div>
@@ -120,11 +123,11 @@
       {{ .Content }}
 
       <div class="social" style="margin-top: 4em">
-        <a class="ui circular facebook icon button"  href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}"
+        <a class="ui circular facebook icon button"  href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
         onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
           <i class="facebook f icon"></i>
         </a>
-        <a class="ui circular twitter icon button" href="https://twitter.com/share?text={{.Title | safeHTML}}&amp;url={{.Permalink}}"
+        <a class="ui circular twitter icon button" href="https://twitter.com/share?text={{.Title | safeHTML}}&amp;url={{ .Permalink }}"
         onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
           <i class="twitter icon"></i>
         </a>
